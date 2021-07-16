@@ -7,7 +7,7 @@ const Question2 = () => {
 	return (
 		<>
 			{countries.map((country) => (
-				<Country country={country} />
+				<Country country={country} key={country} />
 			))}
 		</>
 	)
