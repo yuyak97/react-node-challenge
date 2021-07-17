@@ -2,11 +2,11 @@ import React from 'react'
 import Country from '../components/Country'
 
 const Question1 = () => {
-	const country = 'Japan'
+	const countryName = 'Japan'
 
 	return (
 		<>
-			<Country country={country} />
+			<Country country={countryName} />
 		</>
 	)
 }
