@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 import CountryPage from './pages/CountryPage'
-import Index from './pages/'
+import Index from './pages/Index'
 import Question1 from './pages/Question1'
 import Question2 from './pages/Question2'
 import Question3 from './pages/Question3'
