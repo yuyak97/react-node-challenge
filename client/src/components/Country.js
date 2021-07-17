@@ -7,22 +7,20 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableRow from '@material-ui/core/TableRow'
 
 const Country = ({country}) => {
-	const countryName = country
-
 	// url of searching bt country name. It can be the native name or partial name
 	const baseUrl = 'https://restcountries.eu/rest/v2/name/'
 	const [countryData, setCountryData] = useState({})
 
 	const getCountry = async () => {
-		const {data} = await axios.get(`${baseUrl}${countryName}`)
+		const {data} = await axios.get(`${baseUrl}${country}`)
 		setCountryData(data)
-		console.log(data)
 	}
 
 	useEffect(() => {
 		getCountry()
 	}, [])
 
+	// style of a country flag
 	const style = {
 		width: 100,
 		border: '1px solid black',
