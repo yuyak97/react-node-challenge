@@ -17,9 +17,9 @@ const Login = () => {
 	const [redirect, setRedirect] = useState(false)
 	const [showLoginErr, setShowLoginErr] = useState(false)
 
-	const submitLogin = async (formData) => {
+	const submitLogin = (formData) => {
 		// console.log(formData)
-		await axios
+		axios
 			.post('http://localhost:4000/api/users/login', formData)
 			.then(() => {
 				console.log('login success')

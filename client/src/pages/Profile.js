@@ -7,10 +7,7 @@ const Profile = () => {
 
 	const getLoginUser = async () => {
 		try {
-			const {data} = await axios.get(
-				'http://localhost:4000/api/users/profile',
-				{withCredentials: true}
-			)
+			const {data} = await axios.get('http://localhost:4000/api/users/profile')
 			// console.log(data)
 			setProfile(data)
 		} catch (e) {}
