@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import {useForm} from 'react-hook-form'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 const Login = () => {
 	const {
@@ -14,6 +15,7 @@ const Login = () => {
 
 	const [showPassword, setShowPassword] = useState(false)
 	const [redirect, setRedirect] = useState(false)
+	const [showLoginErr, setShowLoginErr] = useState(false)
 
 	const submitLogin = async (formData) => {
 		// console.log(formData)
@@ -21,10 +23,16 @@ const Login = () => {
 			.post('http://localhost:4000/api/users/login', formData)
 			.then(() => {
 				console.log('login success')
+				setRedirect(!redirect)
 			})
 			.catch((err) => {
-				
+				console.log(err)
+				setShowLoginErr(!showLoginErr)
 			})
+	}
+
+	if (redirect) {
+		return <Redirect to={'/'} />
 	}
 
 	const errorMessage = {
@@ -75,6 +83,7 @@ const Login = () => {
 					/>
 				</Grid>
 			</Grid>
+			{showLoginErr && <p style={errorMessage}>Login failed</p>}
 			<Button variant='contained' color='primary' type='submit'>
 				login
 			</Button>
