@@ -51,8 +51,8 @@ Router.post('/login', (req, res) => {
 				throw new Error(err)
 			}
 
-			console.log(result)
-			console.log(result[0].password)
+			// console.log(result)
+			// console.log(result[0].password)
 			const passwordResult = await bcrypt.compare(
 				body.password,
 				result[0].password
@@ -77,6 +77,26 @@ Router.post('/login', (req, res) => {
 })
 
 // Get login user
-Router.get('profile', (req, res) => {})
+Router.get('/profile', (req, res) => {
+	const {jwt} = req.cookies
+
+	if (!jwt) {
+		throw new Error()
+	}
+
+	const {email} = jsonwebtoken.verify(jwt, 'shhhhh')
+	// console.log(email)
+	connection.query(
+		'SELECT name, email FROM user WHERE email = ?',
+		[email],
+		(err, result, fields) => {
+			if (err) {
+				throw new Error(err)
+			}
+
+			res.json(result[0])
+		}
+	)
+})
 
 module.exports = Router
