@@ -81,7 +81,10 @@ Router.get('/profile', (req, res) => {
 	const {jwt} = req.cookies
 
 	if (!jwt) {
-		throw new Error()
+		res.status(403).send({
+			success: false,
+			msg: 'No token provided',
+		})
 	}
 
 	const {email} = jsonwebtoken.verify(jwt, 'shhhhh')
