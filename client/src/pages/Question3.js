@@ -23,7 +23,7 @@ const Question3 = () => {
 			(country) => country.name.toLowerCase() == inputCountryName.toLowerCase()
 		)
 		setFilteredCountryName(filteredCountry)
-		console.log(filteredCountry)
+		// console.log(filteredCountry)
 	}
 
 	useEffect(() => {

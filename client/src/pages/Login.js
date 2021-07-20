@@ -2,12 +2,10 @@ import React, {useState} from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-import {Redirect} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import axios from 'axios'
 
-const Question4 = () => {
-	// import from useForm
+const Login = () => {
 	const {
 		register,
 		handleSubmit,
@@ -15,24 +13,18 @@ const Question4 = () => {
 	} = useForm()
 
 	const [showPassword, setShowPassword] = useState(false)
-
 	const [redirect, setRedirect] = useState(false)
-	const [showLoginErr, setShowLoginErr] = useState(false)
 
-	const submitCreateAccount = async (formData) => {
-		console.log(formData)
+	const submitLogin = async (formData) => {
+		// console.log(formData)
 		await axios
-			.post('http://localhost:4000/api/users', formData)
+			.post('http://localhost:4000/api/users/login', formData)
 			.then(() => {
-				setRedirect(true)
+				console.log('login success')
 			})
 			.catch((err) => {
-				throw new Error(err)
+				
 			})
-	}
-
-	if (redirect) {
-		return <Redirect to={'/login'} />
 	}
 
 	const errorMessage = {
@@ -40,18 +32,8 @@ const Question4 = () => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit(submitCreateAccount)}>
+		<form onSubmit={handleSubmit(submitLogin)}>
 			<Grid container spacing={3} direction='column'>
-				<Grid item>
-					<TextField
-						fullWidth
-						placeholder='name'
-						{...register('name', {required: true})}
-					/>
-					{errors.name && errors.name.type === 'required' && (
-						<span style={errorMessage}>This is required</span>
-					)}
-				</Grid>
 				<Grid item>
 					<TextField
 						fullWidth
@@ -94,10 +76,10 @@ const Question4 = () => {
 				</Grid>
 			</Grid>
 			<Button variant='contained' color='primary' type='submit'>
-				create user account
+				login
 			</Button>
 		</form>
 	)
 }
 
-export default Question4
+export default Login
