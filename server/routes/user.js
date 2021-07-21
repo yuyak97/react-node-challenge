@@ -90,7 +90,7 @@ Router.get('/profile', (req, res) => {
 	const {email} = jsonwebtoken.verify(jwt, 'shhhhh')
 	// console.log(email)
 	connection.query(
-		'SELECT name, email FROM user WHERE email = ?',
+		'SELECT name, email, coin FROM user WHERE email = ?',
 		[email],
 		(err, result, fields) => {
 			if (err) {

@@ -1,23 +1,30 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 import {connect} from 'react-redux'
 import {setProfile} from '../redux/actions/setProfileAction'
 
 const Profile = (props) => {
 	const [redirect, setRedirect] = useState(false)
 
-	const [profile, setProfile] = useState({})
-
 	const getLoginUser = async () => {
 		try {
-			const {data} = await axios.get('http://localhost:4000/api/users/profile')
+			const {data} = await axios.get(
+				'http://localhost:4000/api/users/profile',
+				{withCredentials: true}
+			)
 			// console.log(data)
 			props.setProfile(data)
 		} catch (err) {
 			console.log(err)
 			setRedirect(!redirect)
 		}
+	}
+
+	const linkStyle = {
+		color: 'white',
+		textDecoration: 'none',
 	}
 
 	useEffect(() => {
@@ -31,8 +38,14 @@ const Profile = (props) => {
 	return (
 		<div>
 			<h1>My profile</h1>
-			<p>name: {props.profile.name}</p>
-			<p>email: {props.profile.email}</p>
+			<p>name: {props?.profile?.name}</p>
+			<p>email: {props?.profile?.email}</p>
+			<p>coin: {props?.profile?.coin}</p>
+			<Button variant='contained' color='primary'>
+				<Link to={'/slot'} style={linkStyle}>
+					Play slot machine!
+				</Link>
+			</Button>
 		</div>
 	)
 }
