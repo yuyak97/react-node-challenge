@@ -2,7 +2,7 @@
 
 **The details of client side and server side are written on README in each directory.**
 
-### Question 1
+## Question 1
 
 The file for Question1 is client/src/pages/Question1.js
 
@@ -10,7 +10,7 @@ The file for Question1 is client/src/pages/Question1.js
 
 - /question1
 
-### Question 2
+## Question 2
 
 The file for Question2 is client/src/pages/Question2.js
 
@@ -18,7 +18,7 @@ The file for Question2 is client/src/pages/Question2.js
 
 - /question2
 
-### Question 3
+## Question 3
 
 The file for Question 3 is client/src/pages/Question3.js
 
@@ -26,9 +26,9 @@ The file for Question 3 is client/src/pages/Question3.js
 
 - /question3
 
-### Question 4
+## Question 4
 
-#### client side
+### client side
 
 The file for Question 4 client side is client/src/pages/Question4
 
@@ -36,7 +36,7 @@ The file for Question 4 client side is client/src/pages/Question4
 
 - /question4
 
-#### server side
+### server side
 
 The file for Question 4 server side is server/routes/user
 
@@ -44,9 +44,9 @@ The file for Question 4 server side is server/routes/user
 
 - POST {baseURL}/api/users
 
-### Question 5
+## Question 5
 
-#### client side
+### client side
 
 The file for Question 5 client side is client/src/pages/login
 
@@ -55,7 +55,7 @@ The file for Question 5 client side is client/src/pages/login
 - /login
 - /profile
 
-#### server side
+### server side
 
 The file for Question 4 server side is server/routes/user
 
@@ -63,9 +63,9 @@ The file for Question 4 server side is server/routes/user
 
 - POST {baseURL}/api/users/login
 
-### Question 6
+## Question 6
 
-#### client side
+### client side
 
 The file for Question 6 client side is client/src/pages/slot
 
@@ -73,7 +73,7 @@ The file for Question 6 client side is client/src/pages/slot
 
 - /slot
 
-#### server side
+### server side
 
 The file for Question 6 server side is server/routes/user
 
