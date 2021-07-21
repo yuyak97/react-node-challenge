@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import CountryPage from './pages/CountryPage'
 import Index from './pages/Index'
 import Login from './pages/Login'
