@@ -17,7 +17,6 @@ const Question4 = () => {
 	const [showPassword, setShowPassword] = useState(false)
 
 	const [redirect, setRedirect] = useState(false)
-	const [showLoginErr, setShowLoginErr] = useState(false)
 
 	const submitCreateAccount = (formData) => {
 		console.log(formData)

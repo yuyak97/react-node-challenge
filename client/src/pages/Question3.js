@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Country from '../components/Country'
 import axios from 'axios'
 
 const Question3 = () => {
@@ -20,7 +19,7 @@ const Question3 = () => {
 		e.preventDefault()
 		console.log({inputCountryName})
 		const filteredCountry = countryArr.find(
-			(country) => country.name.toLowerCase() == inputCountryName.toLowerCase()
+			(country) => country.name.toLowerCase() === inputCountryName.toLowerCase()
 		)
 		setFilteredCountryName(filteredCountry)
 		// console.log(filteredCountry)
