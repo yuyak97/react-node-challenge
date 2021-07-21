@@ -27,6 +27,8 @@ const Slot = (props) => {
 						return renderArr.push(`🍋${fruit}`)
 					case 'banana':
 						return renderArr.push(`🍌${fruit}`)
+					default:
+						return renderArr.push(fruit)
 				}
 				// console.log(data.result)
 			})
@@ -35,7 +37,6 @@ const Slot = (props) => {
 			// console.log(data)
 			setValue(data)
 		} catch (err) {
-			console.log('weee', err)
 			setRedirect(!redirect)
 		}
 	}
