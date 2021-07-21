@@ -6,8 +6,6 @@ import axios from 'axios'
 import {Provider} from 'react-redux'
 import {configureStore} from './redux/configureStore'
 
-axios.defaults.withCredentials = true
-
 const store = configureStore()
 
 ReactDOM.render(

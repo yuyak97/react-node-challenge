@@ -1,4 +1,5 @@
 const {createPool} = require('mysql2')
+require('dotenv').config('../.env')
 
 const pool = createPool({
 	host: 'localhost',

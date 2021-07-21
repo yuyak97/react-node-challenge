@@ -7,6 +7,7 @@ import Question1 from './pages/Question1'
 import Question2 from './pages/Question2'
 import Question3 from './pages/Question3'
 import Question4 from './pages/Question4'
+import Slot from './pages/Slot'
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 			<Route exact path='/question4' component={Question4} />
 			<Route exact path='/profile' component={Profile} />
 			<Route path='/login' component={Login} />
+			<Route path='/slot' component={Slot} />
 			<Route path={'/country/:countryName'} component={CountryPage}></Route>
 		</BrowserRouter>
 	)

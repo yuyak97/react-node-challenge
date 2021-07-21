@@ -20,7 +20,9 @@ const Login = () => {
 	const submitLogin = (formData) => {
 		// console.log(formData)
 		axios
-			.post('http://localhost:4000/api/users/login', formData)
+			.post('http://localhost:4000/api/users/login', formData, {
+				withCredentials: true,
+			})
 			.then(() => {
 				console.log('login success')
 				setRedirect(!redirect)
