@@ -3,6 +3,7 @@ const Router = express.Router()
 const connection = require('../config/database')
 const jsonwebtoken = require('jsonwebtoken')
 const {hashSync, genSaltSync, compareSync} = require('bcrypt')
+// const jwt_decode = require('jwt-decode')
 
 // get all users
 Router.get('/', (req, res) => {
@@ -79,6 +80,8 @@ Router.post('/login', (req, res) => {
 
 // Get login user
 Router.get('/profile', (req, res) => {
+	// console.log('start profile')
+	// console.log(req.cookies)
 	const {jwt} = req.cookies
 
 	if (!jwt) {
@@ -87,9 +90,10 @@ Router.get('/profile', (req, res) => {
 			msg: 'No token provided',
 		})
 	}
+	// console.log('DECODE ===>', jwt_decode(jwt))
 
 	const {email} = jsonwebtoken.verify(jwt, process.env.SUPER_SECRET)
-	// console.log(email)
+	console.log(email)
 	connection.query(
 		'SELECT name, email, coin FROM user WHERE email = ?',
 		[email],
