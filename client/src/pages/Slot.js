@@ -3,6 +3,7 @@ import axios from 'axios'
 import Button from '@material-ui/core/Button'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
+import Wrapper from '../components/Wrapper'
 
 const Slot = (props) => {
 	const [value, setValue] = useState({})
@@ -10,9 +11,12 @@ const Slot = (props) => {
 
 	const startGame = async () => {
 		try {
-			const {data} = await axios.get('http://localhost:4000/api/game', {
-				withCredentials: true,
-			})
+			const {data} = await axios.get(
+				'https://yuya-node-mysql.herokuapp.com/api/game',
+				{
+					withCredentials: true,
+				}
+			)
 			// console.log(data)
 
 			const renderArr = []
@@ -27,6 +31,8 @@ const Slot = (props) => {
 						return renderArr.push(`🍋${fruit}`)
 					case 'banana':
 						return renderArr.push(`🍌${fruit}`)
+					default:
+						return renderArr.push(fruit)
 				}
 				// console.log(data.result)
 			})
@@ -35,7 +41,6 @@ const Slot = (props) => {
 			// console.log(data)
 			setValue(data)
 		} catch (err) {
-			console.log('weee', err)
 			setRedirect(!redirect)
 		}
 	}
@@ -44,10 +49,8 @@ const Slot = (props) => {
 		return <Redirect to={'/login'} />
 	}
 
-	// console.log(props)
-
 	return (
-		<div>
+		<Wrapper>
 			<h1>Slot</h1>
 			<p>Player: {props?.profile?.name}</p>
 			<Button onClick={startGame} variant='contained' color='primary'>
@@ -62,7 +65,7 @@ const Slot = (props) => {
 			</ul>
 			<p>COINS YOU GET: {value?.wonCoin} </p>
 			<p>YOUR COIN: {value?.totalUserCoin}</p>
-		</div>
+		</Wrapper>
 	)
 }
 

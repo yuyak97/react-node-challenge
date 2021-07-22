@@ -2,9 +2,7 @@ const express = require('express')
 const Router = express.Router()
 const connection = require('../config/database')
 const jsonwebtoken = require('jsonwebtoken')
-const {hashSync, genSaltSync} = require('bcrypt')
-
-const bcrypt = require('bcrypt')
+const {hashSync, genSaltSync, compareSync} = require('bcrypt')
 
 // get all users
 Router.get('/', (req, res) => {
@@ -43,7 +41,7 @@ Router.post('/login', (req, res) => {
 	connection.query(
 		'SELECT * FROM user WHERE email = ?',
 		[body.email],
-		async (err, result, fields) => {
+		(err, result, fields) => {
 			if (err) {
 				throw new Error(err)
 			}
@@ -51,20 +49,23 @@ Router.post('/login', (req, res) => {
 				throw new Error(err)
 			}
 
-			// console.log(result)
-			// console.log(result[0].password)
-			const passwordResult = await bcrypt.compare(
-				body.password,
-				result[0].password
-			)
+			console.log(result)
+			console.log(result[0].password)
+			const passwordResult = compareSync(body.password, result[0].password)
+
+			console.log({passwordResult})
 			// console.log(passwordResult)
 			if (passwordResult) {
 				result.password = undefined
-				const jwt = jsonwebtoken.sign({email: req.body.email}, 'shhhhh', {
-					expiresIn: '1h',
-				})
+				const jwt = jsonwebtoken.sign(
+					{email: req.body.email},
+					process.env.SUPER_SECRET,
+					{
+						expiresIn: '1h',
+					}
+				)
 
-				res.cookie('jwt', jwt)
+				res.cookie('jwt', jwt, {sameSite: 'none', secure: true})
 				return res.send(jwt)
 			} else {
 				return res.json({
@@ -87,7 +88,7 @@ Router.get('/profile', (req, res) => {
 		})
 	}
 
-	const {email} = jsonwebtoken.verify(jwt, 'shhhhh')
+	const {email} = jsonwebtoken.verify(jwt, process.env.SUPER_SECRET)
 	// console.log(email)
 	connection.query(
 		'SELECT name, email, coin FROM user WHERE email = ?',

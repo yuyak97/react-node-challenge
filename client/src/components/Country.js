@@ -29,7 +29,7 @@ const Country = ({country}) => {
 	return (
 		<div>
 			<h1>Country: {countryData[0]?.name}</h1>
-			<img src={countryData[0]?.flag} style={style} />
+			<img src={countryData[0]?.flag} style={style} alt='flag' />
 			<TableContainer>
 				<Table>
 					<TableBody>

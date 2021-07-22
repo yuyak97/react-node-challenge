@@ -20,7 +20,7 @@ const Login = () => {
 	const submitLogin = (formData) => {
 		// console.log(formData)
 		axios
-			.post('http://localhost:4000/api/users/login', formData, {
+			.post('https://yuya-node-mysql.herokuapp.com/api/users/login', formData, {
 				withCredentials: true,
 			})
 			.then(() => {
