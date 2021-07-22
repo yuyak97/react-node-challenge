@@ -8,6 +8,10 @@
 - @material-ui/core ^4.12.1
 - redux ^4.1.0
 
+## release base url
+
+- https://yuya-react-client.herokuapp.com/
+
 ## Usage
 
 ### Build Setup
