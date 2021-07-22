@@ -10,9 +10,12 @@ const Slot = (props) => {
 
 	const startGame = async () => {
 		try {
-			const {data} = await axios.get('http://localhost:4000/api/game', {
-				withCredentials: true,
-			})
+			const {data} = await axios.get(
+				'https://yuya-node-mysql.herokuapp.com/api/game',
+				{
+					withCredentials: true,
+				}
+			)
 			// console.log(data)
 
 			const renderArr = []

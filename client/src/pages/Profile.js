@@ -11,7 +11,7 @@ const Profile = (props) => {
 	const getLoginUser = async () => {
 		try {
 			const {data} = await axios.get(
-				'http://localhost:4000/api/users/profile',
+				'https://yuya-node-mysql.herokuapp.com/api/users/profile',
 				{withCredentials: true}
 			)
 			// console.log(data)

@@ -14,7 +14,7 @@ app.use(express.json())
 app.use('/api/users', userRouter)
 app.use('/api/game', gameRouter)
 
-const port = process.env.APP_PORT || 5000
+const port = process.env.PORT || 4000
 
 app.listen(port, () => {
 	console.log('server up and running on PORT :', port)

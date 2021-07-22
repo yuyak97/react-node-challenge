@@ -21,7 +21,7 @@ const Question4 = () => {
 	const submitCreateAccount = (formData) => {
 		console.log(formData)
 		axios
-			.post('http://localhost:4000/api/users', formData)
+			.post('https://yuya-node-mysql.herokuapp.com/api/users', formData)
 			.then(() => {
 				setRedirect(true)
 			})
