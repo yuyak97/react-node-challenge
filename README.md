@@ -56,6 +56,7 @@ The file for Question 5 client side is client/src/pages/login
 - /profile
 
 **Test account**
+
 - name: test account
 - email: test@test.test
 - password: test
@@ -80,7 +81,7 @@ The file for Question 6 client side is client/src/pages/slot
 
 ### server side
 
-The file for Question 6 server side is server/routes/user
+The file for Question 6 server side is server/routes/game
 
 **End point of login**
 
