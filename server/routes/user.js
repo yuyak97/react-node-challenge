@@ -65,7 +65,7 @@ Router.post('/login', (req, res) => {
 					}
 				)
 
-				res.cookie('jwt', jwt)
+				res.cookie('jwt', jwt, {sameSite: 'none', secure: true})
 				return res.send(jwt)
 			} else {
 				return res.json({
