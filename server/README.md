@@ -6,6 +6,10 @@
 - mysql2 ^2.2.5
 - jsonwebtoken ^8.5.1
 
+## release endpoint
+
+- https://yuya-node-mysql.herokuapp.com/
+
 ## Usage
 
 ### Build Setup
@@ -28,20 +32,12 @@ mysql -uroot -h127.0.0.1 --port
 use {database name}
 
 # create USER table
-CREATE TABLE user (id int NOT NULL AUTO_INCREMENT, name varchar(50) NOT NULL, email varchar(50) NOT NULL, password varchar(50) NOT NULL, coin int NOT NULL DEFAULT 20, PRIMARY KEY(id));
+CREATE TABLE user (id int NOT NULL AUTO_INCREMENT, name varchar(50) NOT NULL, email varchar(50) NOT NULL, password text NOT NULL, coin int NOT NULL DEFAULT 20, PRIMARY KEY(id));
 ```
 
 ### The structure of user table
 
-+----------+-------------+------+-----+---------+----------------+
-| Field | Type | Null | Key | Default | Extra |
-+----------+-------------+------+-----+---------+----------------+
-| id | int | NO | MUL | NULL | auto_increment |
-| name | varchar(50) | NO | | NULL | |
-| email | varchar(50) | NO | | NULL | |
-| password | varchar(50) | NO | | NULL | |
-| coin | int | YES | | 20 | |
-+----------+-------------+------+-----+---------+----------------+
+![table_col](./image/tabCol.png)
 
 ## End point
 
