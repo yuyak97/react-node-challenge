@@ -10,6 +10,11 @@
 
 - https://yuya-node-mysql.herokuapp.com/
 
+## TEST ENVIRONMENT
+
+- Google Chrome Version: 91.0.4472.114
+- Postman
+
 ## Usage
 
 ### Build Setup

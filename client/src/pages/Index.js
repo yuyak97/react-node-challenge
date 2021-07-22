@@ -34,6 +34,12 @@ const Index = (props) => {
 					</Link>
 				</li>
 			</ul>
+			<h2>test account</h2>
+			<ul>
+				<li>name: Test account</li>
+				<li>email: test@test.test</li>
+				<li>password: test</li>
+			</ul>
 		</>
 	)
 }

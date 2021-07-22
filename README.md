@@ -55,6 +55,11 @@ The file for Question 5 client side is client/src/pages/login
 - /login
 - /profile
 
+**Test account**
+- name: test account
+- email: test@test.test
+- password: test
+
 ### server side
 
 The file for Question 4 server side is server/routes/user

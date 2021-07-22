@@ -10,7 +10,16 @@
 
 ## release base url
 
-- https://yuya-react-client.herokuapp.com/
+- https://react-node-challenge.netlify.app/
+
+I was planning to use heroku. However, I faced this issue below so I decide to deploy with Netlify.
+https://stackoverflow.com/questions/65570314/unable-to-send-cookie-to-backend-with-heroku?fbclid=IwAR21by5WVQinySUmiiI_gBo5CptsrJh-5BlXqnq8zVdORwNYymQVrhRgUJ0
+
+- ~~https://yuya-react-client.herokuapp.com/~~
+
+## TEST ENVIRONMENT
+
+- Google Chrome Version: 91.0.4472.114
 
 ## Usage
 
